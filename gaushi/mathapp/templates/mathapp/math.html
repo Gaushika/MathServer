@@ -20,20 +20,20 @@ h1{
 <body>
 <div class="edge">
 <div class="box">
-<h1>Power Calculation (P = I^2 × R)</h1>
+<h1>BMI Calculation (BMI = w / h^2 )</h1>
 <form method="POST">
     {% csrf_token %}
     <div class="formelt">
-        Current (I): <input type="text" name="current" value="{{I}}">(in Amperes)<br/>
+        weight (w): <input type="text" name="weight" value="{{w}}">(in kg)<br/>
     </div>
     <div class="formelt">
-        Resistance (R): <input type="text" name="resistance" value="{{R}}">(in Ohms)<br/>
+        height (h): <input type="text" name="height" value="{{h}}">(in m)<br/>
     </div>
     <div class="formelt">
     <input type="submit" value="Calculate"><br/>
     </div>
     <div class="formelt">
-        Power (P): <input type="text" name="power" value="{{power}}">(in Watts)<br/>
+        BMI : <input type="text" name="BMI" value="{{BMI}}">(in kg/m^2 )<br/>
     </div>
 </form>
 </div>

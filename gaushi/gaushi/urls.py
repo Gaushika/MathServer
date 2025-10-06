@@ -4,8 +4,8 @@ from mathapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('power/', views.powercalc, name="powercalc"),
-    path('', views.powercalc, name="powercalcroot"),  
+    path('BMI/', views.BMIcalc, name="BMIcalc"),
+    path('', views.BMIcalc, name="BMIcalcroot"),  
 ]
 
 

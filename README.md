@@ -58,20 +58,20 @@ h1{
 <body>
 <div class="edge">
 <div class="box">
-<h1>Power Calculation (P = I^2 × R)</h1>
+<h1>BMI Calculation (BMI = w / h^2 )</h1>
 <form method="POST">
     {% csrf_token %}
     <div class="formelt">
-        Current (I): <input type="text" name="current" value="{{I}}">(in Amperes)<br/>
+        weight (w): <input type="text" name="weight" value="{{w}}">(in kg)<br/>
     </div>
     <div class="formelt">
-        Resistance (R): <input type="text" name="resistance" value="{{R}}">(in Ohms)<br/>
+        height (h): <input type="text" name="height" value="{{h}}">(in m)<br/>
     </div>
     <div class="formelt">
     <input type="submit" value="Calculate"><br/>
     </div>
     <div class="formelt">
-        Power (P): <input type="text" name="power" value="{{power}}">(in Watts)<br/>
+        BMI : <input type="text" name="BMI" value="{{BMI}}">(in kg/m^2 )<br/>
     </div>
 </form>
 </div>
@@ -79,32 +79,36 @@ h1{
 </body>
 </html>
 
+
+
 views.py
 
 from django.shortcuts import render
 
-def powercalc(request):
+def BMIcalc(request):
     context = {}
-    context['power'] = "0"
-    context['I'] = "0"
-    context['R'] = "0"
+    context['BMI'] = "0"
+    context['w'] = "0"
+    context['h'] = "0"
 
     if request.method == 'POST':
         print("POST method is used")
-        I = request.POST.get('current', '0')
-        R = request.POST.get('resistance', '0')
+        w = request.POST.get('weight', '0')
+        h = request.POST.get('height', '0')
 
-        print('Current (I) =', I)
-        print('Resistance (R) =', R)
-        power = (int(I) ** 2) * int(R)
+        print('weight =', w)
+        print('height =', h)
+        BMI = (int(w) ) / (float(h)**2)
 
-        context['power'] = power
-        context['I'] = I
-        context['R'] = R
+        context['BMI'] = BMI
+        context['w'] = w
+        context['h'] = h
 
-        print('Power (P) =', power)
+        print('BMI =', BMI)
 
     return render(request, 'mathapp/math.html', context)
+
+
 
 urls.py
 
@@ -114,19 +118,20 @@ from mathapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('power/', views.powercalc, name="powercalc"),
-    path('', views.powercalc, name="powercalcroot"),  
+    path('BMI/', views.BMIcalc, name="BMIcalc"),
+    path('', views.BMIcalc, name="BMIcalcroot"),  
 ]
+
+
+
 
 
 
 ```
 
 ## SERVER SIDE PROCESSING:
-![alt text](<Screenshot (36).png>)
-
+![alt text](<Screenshot (39).png>)
 ## HOMEPAGE:
-![alt text](<Screenshot (35).png>)
-
+![alt text](<Screenshot (38).png>)
 ## RESULT:
 The program for performing server side processing is completed successfully.
