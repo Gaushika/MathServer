@@ -59,6 +59,8 @@ h1{
 <div class="edge">
 <div class="box">
 <h1>BMI Calculation (BMI = w / h^2 )</h1>
+<br>
+<h3 align="center">Gaushika RR (25017292) </h3>
 <form method="POST">
     {% csrf_token %}
     <div class="formelt">
@@ -78,6 +80,8 @@ h1{
 </div>
 </body>
 </html>
+
+
 
 
 
@@ -130,8 +134,10 @@ urlpatterns = [
 ```
 
 ## SERVER SIDE PROCESSING:
-![alt text](<Screenshot (39).png>)
+![alt text](<Screenshot (41).png>)
+
 ## HOMEPAGE:
-![alt text](<Screenshot (38).png>)
+![alt text](<Screenshot (40).png>)
+
 ## RESULT:
 The program for performing server side processing is completed successfully.
